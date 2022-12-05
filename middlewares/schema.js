@@ -10,6 +10,12 @@ const signupSchema = Joi.object({
         .required(),
     password: Joi
         .string()
+        .required(),
+    phone: Joi
+        .string()
+        .required(),
+    role: Joi   
+        .string()
         .required()
 })
 
