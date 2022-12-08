@@ -12,6 +12,15 @@ const userModel = new Schema({
     full_name: String,
     password: String,
     phone: String,
+    products: [{
+        type: Schema.Types.ObjectId,
+        ref: 'products'
+    }],
+    status: {
+        type: String,
+        default: 'active',
+        enum: ['suspended', 'active', 'deactivate']
+    },
     role: {
         type: String,
         default: 'seller',

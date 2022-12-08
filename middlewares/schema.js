@@ -14,7 +14,7 @@ const signupSchema = Joi.object({
     phone: Joi
         .string()
         .required(),
-    role: Joi   
+    role: Joi
         .string()
         .required()
 })
@@ -29,7 +29,50 @@ const loginSchema = Joi.object({
         .required()
 })
 
+
+const productSchema = Joi.object({
+    name: Joi
+        .string()
+        .required(),
+    type: Joi
+        .string()
+        .required(),
+    price: Joi
+        .number()
+        .required(),
+    category: Joi
+        .string()
+        .required(),
+    imageUrl: Joi
+        .string()
+        .required()
+})
+
+const editSchema = Joi.object({
+    name: Joi
+        .string()
+        .required(),
+    type: Joi
+        .string()
+        .required(),
+    price: Joi
+        .number()
+        .required(),
+    category: Joi
+        .string()
+        .required()
+})
+
+const statusSchema = Joi.object({
+    status: Joi 
+        .string()
+        .valid('suspended', 'active', 'deactivate')
+        .required()
+})
 module.exports = {
     signupSchema,
-    loginSchema
+    loginSchema,
+    productSchema,
+    editSchema,
+    statusSchema
 }
