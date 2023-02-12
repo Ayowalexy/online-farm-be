@@ -70,6 +70,7 @@ const signUp = asynchandler(async (req, res) => {
 
 })
 
+
 module.exports = {
     login,
     signUp

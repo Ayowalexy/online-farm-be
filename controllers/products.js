@@ -45,9 +45,14 @@ const getAllProduct = asynchandler(async (req, res) => {
         } else if (user.role === 'seller') {
             allProducts = user.products
         }
-
         res.status(201).json({ "status": "success", "data": allProducts, "meta": {} })
     }
+})
+
+const getProductType = asynchandler(async (req, res) => {
+    const allProducts = await Product.find();
+    res.status(201).json({ "status": "success", "data": allProducts, "meta": {} })
+
 })
 
 const deleteProduct = asynchandler(async (req, res) => {
@@ -59,8 +64,6 @@ const deleteProduct = asynchandler(async (req, res) => {
 })
 
 const editProduct = asynchandler(async (req, res) => {
-
-    console.log(req.body)
     const { error, value } = editSchema.validate(req.body);
 
     if (error) {
@@ -87,5 +90,6 @@ module.exports = {
     addProduct,
     getAllProduct,
     editProduct,
-    deleteProduct
+    deleteProduct,
+    getProductType
 }
